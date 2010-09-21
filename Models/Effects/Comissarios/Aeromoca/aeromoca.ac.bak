@@ -1,0 +1,23 @@
+AC3Db
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "aeromoca"
+loc 0.0490958 0.835646 0
+texture "aeromoca.png"
+crease 45.000000
+numvert 4
+-0.270324 0.823259 0
+-0.270324 -0.823259 0
+0.262132 -0.823259 0
+0.262132 0.823259 0
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+2 0.787003 0.0348803
+1 0.196094 0.0348803
+0 0.196094 0.996094
+3 0.787003 0.996094
+kids 0

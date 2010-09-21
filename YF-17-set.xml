@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	Prestes Hangar Aircraft Model
+	=============================
+
+	Visit PRESTES Hangar website at http://presteshangar.wikidot.com/start
+	
+	Revisions
+	=========
+	
+		SET-2009, inicio do desenvolvimento do modelo.
+		15-JAN-2010, primeira versao apresentada.
+		05-FEB-2010, atualizado o sistema de dialogos integrado.
+
+	License : Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license. 
+	
+	THIS AIRCRAFT WAS CREATED USING 'PRESTES HANGAR AIRCRAFT MODEL FILES'. THIS PROGRAM IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. PRESTES HANGAR IS NOT NECESSARIALY THE CREATOR OF THIS AIRCRAFT. CHECK AUTHOR AND HIS CONTACT INFORMATION. 
+    		
+ -->
+ 
+<!-- SOBRE O Northrop YF-17 
+
+	Aeronave criada por Prestes
+
+-->
+
+<PropertyList>
+ <sim>
+
+		<description>Northrop YF-17</description>
+		<author>Prestes</author>
+		
+		<!-- Estado de desenvolvimento da aeronave -->
+<!--		<status>alpha</status>		-->
+<!--		<status>beta</status>		-->
+		<status>development</status>		
+
+		<flight-model>yasim</flight-model>
+
+		<!-- O nome basico do aviao fornecido ao FDM, 
+			geralmente o nome da pasta do aviao -->
+		<aero>YF-17-yasim</aero>
+
+		<virtual-cockpit archive="y">false</virtual-cockpit>
+
+		<!-- Definicoes dos sistemas -->
+		<systems>
+			<autopilot>
+ 			<path>Aircraft/YF-17/Systems/autopilot.xml</path>
+			</autopilot>
+			<electrical>
+				<path>Aircraft/Generic/electrical.xml</path>
+			</electrical>
+			<system>
+				<path>Aircraft/Generic/generic-systems.xml</path>
+			</system>
+		</systems>
+		
+		<!-- Definicoes para a instrumentacao da aeronave -->
+		<instrumentation>
+			<path>Aircraft/YF-17/Systems/instrumentation.xml</path>
+		</instrumentation>
+
+		<!-- Definicoes para som da aeronave -->
+		<sound>
+			<audible>true</audible>
+			<path>Aircraft/f14b/f-14b-sound.xml</path>
+		</sound>
+
+		<!-- Definicoes para splash screen -->
+		<startup>
+			<splash-texture>Aircraft/YF-17/splash.png</splash-texture>
+		</startup>
+		
+		<!-- modificações para funcionamento dos liveries - http://wiki.flightgear.org/index.php/Livery_over_MP -->
+		<model>
+			<path>Aircraft/YF-17/Models/YF-17.xml</path>
+			<livery>
+				<file type="string">Default</file>
+			</livery>
+			<miscelania>
+				<file type="string">Default</file>
+			</miscelania>		
+		</model>
+		
+		
+		<!-- Distancia padrao da vista para o aviao (metros) -->
+		<chase-distance-m>-35</chase-distance-m>
+		
+		<!-- Cameras da aeronave -->
+		<view>
+			<internal archive="y">true</internal>
+			<config>
+				<!-- x/y/z == (esquerda, direita)/(cima, baixo)/(frente, tras) -->
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">3.04593</y-offset-m>
+				<z-offset-m archive="y">-2.3814</z-offset-m>
+				<pitch-offset-deg archive="y">-8.0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="2">
+			<name>Good runway angle</name>
+			<config>
+				<z-offset-m type="double" archive="y">-80.0</z-offset-m>
+				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
+			</config>
+		</view>
+
+		<view n="1500">
+		    <name>Left Wing</name>
+		    <type>lookfrom</type>
+		    <internal archive="y">true</internal>
+		    <config>
+		      <from-model type="bool">true</from-model>
+		      <from-model-idx type="int">0</from-model-idx>
+		      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+		      <default-field-of-view-deg type="double">55</default-field-of-view-deg>
+		      <pitch-offset-deg>-8.0</pitch-offset-deg>
+		      <heading-offset-deg type="double">90</heading-offset-deg> <!-- parallel to the panel -->
+		      <x-offset-m archive="y"> -5.30148 </x-offset-m> <!--Left/Right -->
+		      <y-offset-m archive="y"> 2.38519 </y-offset-m> <!--Up/Down -->
+		      <z-offset-m archive="y"> 2.65167 </z-offset-m> <!--Fdw/Back -->
+		    </config>
+
+	    </view>
+		<view n="1501">
+		    <name>Right Turbofan</name>
+		    <type>lookfrom</type>
+		    <internal archive="y">true</internal>
+		    <config>
+			      <from-model type="bool">true</from-model>
+			      <from-model-idx type="int">0</from-model-idx>
+			      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+			      <default-field-of-view-deg type="double">45</default-field-of-view-deg>
+			      <pitch-offset-deg>-8.0</pitch-offset-deg>
+			      <heading-offset-deg type="double">225</heading-offset-deg> <!-- parallel to the panel -->
+		      <x-offset-m archive="y"> 5.30148 </x-offset-m> <!--Left/Right -->
+		      <y-offset-m archive="y"> 2.38519 </y-offset-m> <!--Up/Down -->
+		      <z-offset-m archive="y"> 2.65167 </z-offset-m> <!--Fdw/Back -->
+		    </config>
+	    </view>
+		<view n="1502">
+			<name>Six</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+				<default-field-of-view-deg type="double">55</default-field-of-view-deg>
+				<heading-offset-deg type="double">0</heading-offset-deg>
+				<!-- x/y/z == right/up/back -->
+				<x-offset-m archive="y"> 0.0</x-offset-m>
+				<y-offset-m archive="y"> 3.65526</y-offset-m>
+				<z-offset-m archive="y">3.41888</z-offset-m>
+				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
+			</config>
+		</view>
+		
+		<!-- Ajuste dos flaps -->
+		<flaps>
+			<setting>0.000</setting>
+			<setting>0.250</setting>
+			<setting>0.500</setting>
+			<setting>0.750</setting>
+			<setting>1.000</setting>
+		</flaps>
+		
+	    <multiplay>
+	      <chat_display>1</chat_display>
+	      <generic> 
+	        <int type="int">0</int>  <!-- 0 immat -->
+	        <int type="int">0</int>  <!-- 1 immat -->
+	        <int type="int">0</int>  <!-- 2 immat -->
+	        <int type="int">0</int>  <!-- 3 immat -->
+	        <int type="int">0</int>  <!-- 4 immat -->
+	        <int type="int">0</int>  <!-- 5 immat -->
+	        <int type="bool">0</int> <!-- 6 smoke --> <!-- controls engines Smoke -->
+	        <int type="int">0</int>  <!-- 7 color --> <!-- controls engines Smoke -->
+	      </generic>
+	    </multiplay> 
+
+		<!-- Controle dos efeitos exibidos -->
+		<effects>
+			<engines>
+				<smoke type="bool">0</smoke>
+			</engines>
+			<gear>
+				<tiresmoke type="bool">0</tiresmoke>
+			</gear>
+		</effects>
+
+		  <submodels> 
+		    <serviceable type="bool">true</serviceable>
+		    <path>Aircraft/YF-17/submodels.xml</path>
+		  </submodels>	     
+
+	    
+		<!-- O menu de ajuda da aeronave -->
+		<help>
+			<title>YF-17</title>
+			<line>Choose your favorit texture using the key above</line>
+			<line>To start the plane you have to select "Engine Starter" and then when</line>
+			<line>n2 shows 25 you have to select "Engine Start", If you want to cutoff</line>
+			<line>the engine just select "Engine Start"</line>
+			<key>
+				<name>l</name>
+				<desc>Brings up the Livery Switching Dialog</desc>
+			</key>
+			<key>
+				<name>Del</name>
+				<desc>Toggle Reversers</desc>
+			</key>
+			<key>
+				<name>Ctrl+B</name>
+				<desc>Toggle SpeedBrake</desc>
+			</key>
+		   <key>
+			    <name>b </name>
+			    <desc>Brakes</desc>
+		   </key>
+		   <key>
+			    <name>Shift+b </name>
+			    <desc>Parking brakes</desc>
+		   </key>
+			<key>
+				<name>w</name>
+				<desc>Engage nose wheel steering</desc>
+			</key>
+		</help>
+
+		<!-- Entradas para o menu de apoio para controle da aeronave -->
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>YF-17</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.open()</script>
+						</binding>
+					</item>
+
+					<item>
+						<label>Lights</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							  var dlg = gui.Dialog.new("/sim/gui/dialogs/lights-config/dialog", "Aircraft/YF-17/Dialogs/lights-dialog.xml");
+				       </script>
+						</binding>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>lightcontrol</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Engines</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							  var dlg = gui.Dialog.new("/sim/gui/dialogs/engines-config/dialog", "Aircraft/YF-17/Dialogs/engines-dialog.xml");
+				       </script>
+						</binding>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>enginecontrol</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Message system</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							  var dlg = gui.Dialog.new("/sim/gui/dialogs/message-config/dialog", "Aircraft/YF-17/Dialogs/message-dialog.xml");
+				       </script>
+						</binding>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>messagecontrol</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Effects</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							  var dlg = gui.Dialog.new("/sim/gui/dialogs/effects-config/dialog", "Aircraft/YF-17/Dialogs/effects-dialog.xml");
+				       </script>
+						</binding>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>effectscontrol</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Pushback</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							  var dlg = gui.Dialog.new("/sim/gui/dialogs/pushback-config/dialog", "Aircraft/YF-17/Dialogs/pushback.xml");
+				       </script>
+						</binding>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>pushback</dialog-name>
+						</binding>
+					</item>
+					
+					<item>
+						<label>Ground Service</label>
+						<binding>
+							<command>nasal</command>
+							<script>groundservice.serviceonoff()</script>
+						</binding>
+					</item>
+
+					
+					<!--Ground proximity warning system (GPWS)-->
+					<item>
+						<label>Ground proximity warning system (GPWS)</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>instrumentation/mk-viii/servicable</property>
+						</binding>
+					</item>
+					
+					<!-- Dialogo do Pushback -->
+				   <item>
+					    <label>Pushback</label>
+					    <name>pushback</name>
+					    <binding>
+						     <command>dialog-show</command>
+						     <dialog-name>pushback</dialog-name>
+					    </binding>
+				   </item>
+				</menu>
+			</default>
+		</menubar>
+
+ </sim>		<!-- FIM DA SECAO SIM -->
+
+	<!-- Engines using thrust reversal. http://wiki.flightgear.org/index.php/Howto:_Add_thrust_reversal -->
+	<!-- Prestes Hangar code - SET-2009 -->
+	
+	<!-- Definicoes para o estado dos motores e seus reversores de empuxo -->
+	<engines>
+		<engine n="0">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<engine n="1">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<!--
+		<engine n="2">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<engine n="3">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		-->
+	</engines>
+
+	<!-- Engines using thrust reversal keyboard. http://wiki.flightgear.org/index.php/Howto:_Add_thrust_reversal -->
+	<input>
+		<keyboard>
+			<key n="127">
+				<name>Delete</name>
+				<desc>Toggle Reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>reversethrust.togglereverser()</script>
+				</binding>
+			</key>
+			
+			<!-- Thanks to David Culp -->
+			<key n="109">
+				<name>m</name>
+				<desc>engage nose wheel steering</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>fdm/jsbsim/systems/NWS/engaged</property>
+					<value>1</value>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>property-assign</command>
+						<property>fdm/jsbsim/systems/NWS/engaged</property>
+						<value>0</value>
+					</binding>
+				</mod-up>
+			</key>			
+		</keyboard>
+	</input>
+			
+	<!-- Ajuste dos controles -->
+	<controls>
+		<groundservice>
+			<active type="bool">false</active>
+		</groundservice>
+		<gear>
+			<brake-parking>1.0</brake-parking>
+			<gear-down>true</gear-down>
+		</gear>
+		<lighting>
+			<instruments-norm>0.0</instruments-norm>
+			<landing-lights type="bool">0</landing-lights>
+			<beacon type="bool">0</beacon>
+			<strobe type="bool">0</strobe>
+			<nav-lights type="bool">0</nav-lights>
+			<cabin-lights type="bool">0</cabin-lights>
+			<wing-lights type="bool">0</wing-lights>
+			<taxi-light type="bool">0</taxi-light>
+			<instrument-lights type="bool">0</instrument-lights>
+		</lighting>
+		<cabin>
+			<fan type="bool">0</fan>
+			<heat type="bool">0</heat>
+		</cabin>
+		<messages>
+			<embarque type="bool">0</embarque>
+			<eqpeletr type="bool">0</eqpeletr>
+			<duremb type="bool">0</duremb>
+			<decauth type="bool">0</decauth>
+			<servicobordo type="bool">0</servicobordo>
+			<cmteprobl type="bool">0</cmteprobl>
+			<cmtepousauth type="bool">0</cmtepousauth>
+			<cmteaguardar type="bool">0</cmteaguardar>
+			<taxiando type="bool">0</taxiando>
+			<fastenseatbelt type="bool">0</fastenseatbelt>
+			<turb type="bool">0</turb>
+			<inicialcmte type="bool">0</inicialcmte>
+			<instrsegur type="bool">0</instrsegur>
+		</messages>
+	</controls>
+
+	<!-- Codigos NASAL -->
+	<nasal>
+	    <livery>
+	        <file>Aircraft/YF-17/Nasal/livery.nas</file>
+	    </livery>
+		<tyresmoke>
+			<file>Aircraft/YF-17/Nasal/tyresmoke.nas</file>
+		</tyresmoke>
+		<reversethrust>
+			<file>Aircraft/YF-17/Nasal/reverse-thrust.nas</file>
+		</reversethrust>
+		<general>
+			<file>Aircraft/YF-17/Nasal/general.nas</file>
+		</general>
+		<lights>
+			<file>Aircraft/YF-17/Nasal/lights.nas</file>
+		</lights>
+		<groundservice>
+			<file>Aircraft/YF-17/Nasal/groundservice.nas</file>
+		</groundservice>
+		<messagesys>
+			<file>Aircraft/YF-17/Nasal/messagesys.nas</file>
+		</messagesys>
+		<effects>
+			<file>Aircraft/YF-17/Nasal/effects.nas</file>
+		</effects>	
+		
+	</nasal>
+
+	<!-- Ajustes da Instrumentação -->
+	<instrumentation>
+		<mk-viii>
+			<serviceable>true</serviceable>
+			<configuration-module>
+				<category-1>1</category-1>
+				<!-- GA Fast, 150' Mode 4B -->
+			</configuration-module>
+			<inputs>
+				<arinc429>
+					<decision-height-ncd>false</decision-height-ncd>
+					<decision-height>200</decision-height>
+				</arinc429>
+			</inputs>
+		</mk-viii>
+		<wxradar>
+			<serviceable>true</serviceable>
+			<range type="int" archive="y">20</range>
+			<minimized type="bool" archive="y">false</minimized>
+			<switch archive="y">on</switch>
+			<mode archive="y">wx</mode>
+			<lightning type="bool" archive="y">true</lightning>
+			<display-mode archive="y">arc</display-mode>
+		</wxradar>
+		<radar>
+			<range type="int" archive="y">20</range>
+		</radar>
+		<nav>
+			<radials>
+				<selected-deg type="double">000</selected-deg>
+			</radials>
+		</nav>
+		<transponder>
+			<id-code>1200</id-code>
+			<ta-ra>0</ta-ra>
+		</transponder>
+	</instrumentation>
+	<systems>
+		<autoflight>
+			<serviceable type="bool">true</serviceable>
+		</autoflight>
+	</systems>
+
+</PropertyList>

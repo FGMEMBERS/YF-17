@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+
+ <!-- Define o modelo 3d da aeronave -->
+ <path>yf-17.ac</path>
+ 
+ <!-- REFERENCE / REFERENCIA
+ 
+	LIVRO
+	PAGINA DA INTERNET, ENDERECO ELETRONICO
+	COMUNIDADES, CONVERSAS
+	
+-->
+
+	<!-- O Sistema de selecao de textura -->
+	<!-- Livery System -->
+<!--
+    <nasal>
+        <load>
+            var livery_update = aircraft.livery_update.new("Aircraft/YF-17/Models/Liveries", 10);
+        </load>
+
+        <unload>
+            livery_update.stop();
+        </unload>
+    </nasal>
+ -->
+    <!-- Objetos da primeira textura --> 
+<!--
+     <animation>
+		<type>material</type>
+			<object-name>fuselage</object-name>
+			<object-name>exemplo1</object-name>
+			<object-name>exemplo2</object-name>
+			<object-name>exemplo3</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>texture</texture-prop>
+      <texture>YF-17.png</texture>
+    </animation>
+ -->    
+    <!-- Objetos da segunda textura --> 
+<!--
+     <animation>
+		<type>material</type>
+			<object-name>misc1</object-name>
+			<object-name>misc2</object-name>
+			<object-name>misc3</object-name>
+		<property-base>sim/model/miscelania</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>YF-17misc.png</texture>
+    </animation>
+-->
+<!-- Livery System -->
+
+
+<!-- ############### -->
+<!-- ### MODELOS ### -->
+<!-- ############### -->
+
+<!-- Adiciona pushback -->
+
+<model>
+	<name>Pushback</name>
+	<path>Models\Airport\Pushback\Military.xml</path>
+	<offsets>
+		<x-m>-1.87381</x-m>
+		<y-m>0</y-m>
+		<z-m>0</z-m>
+	</offsets>
+</model>
+
+<!-- ################# -->
+<!-- ### ANIMACOES ### -->
+<!-- ################# -->
+
+
+<!-- ########### -->
+<!-- ## Luzes ## -->
+<!-- ########### -->
+
+<!-- Navegação fuselagem porta traseira -->
+<model>
+	<path>Aircraft/YF-17/Models/Effects/Lights/beacon.xml</path>
+	<offsets>
+		<x-m>1.76666</x-m>
+		<y-m>0</y-m>
+		<z-m>3.13904</z-m>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/YF-17/Models/Effects/Lights/beacon.xml</path>
+	<offsets>
+		<x-m>6.12998</x-m>
+		<y-m>0</y-m>
+		<z-m>0.919678</z-m>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/YF-17/Models/Effects/Lights/beacon.xml</path>
+	<offsets>
+		<x-m>6.07152</x-m>
+		<y-m>1.77942</y-m>
+		<z-m>4.30352</z-m>
+	</offsets>
+</model>
+
+<!-- Asa esquerda -->
+<model>
+	<path>Aircraft/YF-17/Models/Effects/Lights/RedLight.xml</path>
+	<offsets>
+		<x-m>6.07152</x-m>
+		<y-m>-1.77942</y-m>
+		<z-m>4.30352</z-m>
+	</offsets>
+</model>
+
+<!-- Asa direita -->
+<model>
+	<path>Aircraft/YF-17/Models/Effects/Lights/GreenLight.xml</path>
+	<offsets>
+		<x-m>4.09737</x-m>
+		<y-m>-5.29532</y-m>
+		<z-m>2.13595</z-m>
+	</offsets>
+</model>
+
+<!-- Trem dianteiro, landing lights -->
+<model>
+	<path>Aircraft/YF-17/Models/Effects/Lights/White-light/Landinglight.xml</path>
+	<offsets>
+		<x-m>1.77942</x-m>
+		<y-m>-0.228699</y-m>
+		<z-m>1.2218</z-m>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/YF-17/Models/Effects/Lights/White-light/Landinglight.xml</path>
+	<offsets>
+		<x-m>1.77942</x-m>
+		<y-m>0.228699</y-m>
+		<z-m>1.2218</z-m>
+	</offsets>
+</model>
+
+<!-- END LIGHTS -->
+
+
+<!-- ######### -->
+<!-- ANIMACOES -->
+<!-- ######### -->
+
+	<!-- ############### -->
+	<!--  Trem de pouso  -->
+	<!-- ############### -->
+	
+	<!-- Trem de pouso dianteiro -->
+		<!-- Mostra e esconde o trem de pouso -->			 
+		<!-- recolhe o eixo do trem e roda -->
+		
+	<!-- Trem de pouso traseiro esquerdo -->
+		<!-- Mostra e esconde o trem de pouso -->			 
+		<!-- recolhe o eixo do trem e roda -->
+	 
+	<!-- Trem de pouso traseiro direito -->
+		<!-- Mostra e esconde o trem de pouso -->			 
+		<!-- recolhe o eixo do trem e roda -->
+	 
+	<!-- Rudder -->
+
+	<!-- Elevators -->
+
+	
+	<!-- Flaps -->
+
+	
+	<!-- Iluminacao noturna -->
+		<!-- Seleciona objetos da iluminacao noturna -->
+
+		<!-- Rudder iluminado -->
+  
+		<!-- janelas dos PAX -->
+
+     
+</PropertyList>
