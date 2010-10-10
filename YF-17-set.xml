@@ -13,7 +13,7 @@
 		15-JAN-2010, primeira versao apresentada.
 		05-FEB-2010, atualizado o sistema de dialogos integrado.
 
-	License : Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported license. 
+	License : GNU-GPL v3.0
 	
 	THIS AIRCRAFT WAS CREATED USING 'PRESTES HANGAR AIRCRAFT MODEL FILES'. THIS PROGRAM IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. PRESTES HANGAR IS NOT NECESSARIALY THE CREATOR OF THIS AIRCRAFT. CHECK AUTHOR AND HIS CONTACT INFORMATION. 
     		
@@ -29,12 +29,9 @@
  <sim>
 
 		<description>Northrop YF-17</description>
-		<author>Prestes</author>
+		<author>Isaias Prestes, Petar Jedvaj</author>
 		
-		<!-- Estado de desenvolvimento da aeronave -->
-<!--		<status>alpha</status>		-->
-<!--		<status>beta</status>		-->
-		<status>development</status>		
+		<status>alpha</status>		
 
 		<flight-model>yasim</flight-model>
 
@@ -47,7 +44,7 @@
 		<!-- Definicoes dos sistemas -->
 		<systems>
 			<autopilot>
- 			<path>Aircraft/YF-17/Systems/autopilot.xml</path>
+	 			<path>Aircraft/YF-17/Systems/autopilot.xml</path>
 			</autopilot>
 			<electrical>
 				<path>Aircraft/Generic/electrical.xml</path>
@@ -94,19 +91,33 @@
 			<config>
 				<!-- x/y/z == (esquerda, direita)/(cima, baixo)/(frente, tras) -->
 				<x-offset-m archive="y">0</x-offset-m>
-				<y-offset-m archive="y">3.04593</y-offset-m>
+				<y-offset-m archive="y">0.95966</y-offset-m>
 				<z-offset-m archive="y">-2.3814</z-offset-m>
-				<pitch-offset-deg archive="y">-8.0</pitch-offset-deg>
+				<pitch-offset-deg archive="y">-7.6</pitch-offset-deg>
 			</config>
+		</view>
+		<view n="1">
+			<internal archive="y">false</internal>
 		</view>
 		<view n="2">
 			<name>Good runway angle</name>
 			<config>
-				<z-offset-m type="double" archive="y">-80.0</z-offset-m>
-				<pitch-offset-deg archive="y">-12.0</pitch-offset-deg>
+				<z-offset-m type="double" archive="y">-20.0</z-offset-m>
+				<pitch-offset-deg archive="y"> 2.9</pitch-offset-deg>
 			</config>
 		</view>
-
+		<view n="3">
+			<internal archive="y">false</internal>
+		</view>
+		<view n="4">
+			<internal archive="y">false</internal>
+		</view>
+		<view n="5">
+			<internal archive="y">false</internal>
+		</view>
+		<view n="6">
+			<internal archive="y">false</internal>
+		</view>
 		<view n="1500">
 		    <name>Left Wing</name>
 		    <type>lookfrom</type>
@@ -115,12 +126,12 @@
 		      <from-model type="bool">true</from-model>
 		      <from-model-idx type="int">0</from-model-idx>
 		      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
-		      <default-field-of-view-deg type="double">55</default-field-of-view-deg>
+		      <default-field-of-view-deg type="double">0</default-field-of-view-deg>
 		      <pitch-offset-deg>-8.0</pitch-offset-deg>
-		      <heading-offset-deg type="double">90</heading-offset-deg> <!-- parallel to the panel -->
+		      <heading-offset-deg type="double">0</heading-offset-deg> <!-- parallel to the panel -->
 		      <x-offset-m archive="y"> -5.30148 </x-offset-m> <!--Left/Right -->
-		      <y-offset-m archive="y"> 2.38519 </y-offset-m> <!--Up/Down -->
-		      <z-offset-m archive="y"> 2.65167 </z-offset-m> <!--Fdw/Back -->
+		      <y-offset-m archive="y"> 0.39892 </y-offset-m> <!--Up/Down -->
+		      <z-offset-m archive="y"> 2.95167 </z-offset-m> <!--Fdw/Back -->
 		    </config>
 
 	    </view>
@@ -134,10 +145,10 @@
 			      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
 			      <default-field-of-view-deg type="double">45</default-field-of-view-deg>
 			      <pitch-offset-deg>-8.0</pitch-offset-deg>
-			      <heading-offset-deg type="double">225</heading-offset-deg> <!-- parallel to the panel -->
+			      <heading-offset-deg type="double">0</heading-offset-deg> <!-- parallel to the panel -->
 		      <x-offset-m archive="y"> 5.30148 </x-offset-m> <!--Left/Right -->
-		      <y-offset-m archive="y"> 2.38519 </y-offset-m> <!--Up/Down -->
-		      <z-offset-m archive="y"> 2.65167 </z-offset-m> <!--Fdw/Back -->
+		      <y-offset-m archive="y"> 0.39892 </y-offset-m> <!--Up/Down -->
+		      <z-offset-m archive="y"> 2.95167 </z-offset-m> <!--Fdw/Back -->
 		    </config>
 	    </view>
 		<view n="1502">
@@ -149,11 +160,11 @@
 				<from-model-idx type="int">0</from-model-idx>
 				<ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
 				<default-field-of-view-deg type="double">55</default-field-of-view-deg>
-				<heading-offset-deg type="double">0</heading-offset-deg>
+				<heading-offset-deg type="double">180</heading-offset-deg>
 				<!-- x/y/z == right/up/back -->
 				<x-offset-m archive="y"> 0.0</x-offset-m>
-				<y-offset-m archive="y"> 3.65526</y-offset-m>
-				<z-offset-m archive="y">3.41888</z-offset-m>
+				<y-offset-m archive="y"> 3.55526</y-offset-m>
+				<z-offset-m archive="y">3.21888</z-offset-m>
 				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
 			</config>
 		</view>
@@ -317,34 +328,11 @@
 							<script>groundservice.serviceonoff()</script>
 						</binding>
 					</item>
-
-					
-					<!--Ground proximity warning system (GPWS)-->
-					<item>
-						<label>Ground proximity warning system (GPWS)</label>
-						<binding>
-							<command>property-toggle</command>
-							<property>instrumentation/mk-viii/servicable</property>
-						</binding>
-					</item>
-					
-					<!-- Dialogo do Pushback -->
-				   <item>
-					    <label>Pushback</label>
-					    <name>pushback</name>
-					    <binding>
-						     <command>dialog-show</command>
-						     <dialog-name>pushback</dialog-name>
-					    </binding>
-				   </item>
 				</menu>
 			</default>
 		</menubar>
 
  </sim>		<!-- FIM DA SECAO SIM -->
-
-	<!-- Engines using thrust reversal. http://wiki.flightgear.org/index.php/Howto:_Add_thrust_reversal -->
-	<!-- Prestes Hangar code - SET-2009 -->
 	
 	<!-- Definicoes para o estado dos motores e seus reversores de empuxo -->
 	<engines>
@@ -352,11 +340,11 @@
 			<running>true</running>
 			<reverser-position type="double">0.000000</reverser-position>
 		</engine>
+		<!--
 		<engine n="1">
 			<running>true</running>
 			<reverser-position type="double">0.000000</reverser-position>
 		</engine>
-		<!--
 		<engine n="2">
 			<running>true</running>
 			<reverser-position type="double">0.000000</reverser-position>

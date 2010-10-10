@@ -1,20 +1,13 @@
 <?xml version="1.0"?>
-
-<!--Autopilot Configuration for the F-5E. Based upon the generic FG Autopilot. -->
-
+<!--
+	Autopilot Version 0 Configuration for the 707 - Prestes Hangar - September 16, 2009 12:30:30 PM 
+    		- based on 'Autopilot Version 5 Configuration for the 737'.
+    -->
+<!--
+    This is still in development, so not all of the controllers are
+    currently used, or work properly.
+-->
 <PropertyList>
-
-
-  <!-- =============================================================== -->
-  <!-- Prediction filters                                              -->
-  <!-- =============================================================== -->
-
-  <predict-simple>
-     <input>/autopilot/internal/nav1-track-error-deg</input>
-     <output>/autopilot/internal/nav1-track-error-lookahead-deg</output>
-     <seconds>8.0</seconds>
-     <filter-gain>0.0</filter-gain>
-  </predict-simple>
 	<!--
     ===============
     Roll Axis Modes
@@ -57,7 +50,6 @@
 			<!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-	
 	<!--
     Heading Bug Hold.  2 stage cascade controller.
     Stage #1 sets target roll based on diff between current heading
@@ -158,7 +150,7 @@
 			<prop>/autopilot/internal/target-roll-deg</prop>
 		</output>
 		<config>
-			<Kp>-1.2</Kp>
+			<Kp>-1.0</Kp>
 			<!-- proportional gain -->
 			<beta>1.0</beta>
 			<!-- input value weighing factor -->
@@ -195,7 +187,7 @@
 			<prop>/controls/flight/aileron</prop>
 		</output>
 		<config>
-			<Kp>0.2</Kp>
+			<Kp>0.1</Kp>
 			<!-- proportional gain -->
 			<beta>1.0</beta>
 			<!-- input value weighing factor -->
@@ -206,7 +198,7 @@
 			<!-- unfiltered derivative error -->
 			<Ti>10.0</Ti>
 			<!-- integrator time -->
-			<Td>0.0001</Td>
+			<Td>0.00001</Td>
 			<!-- derivator time -->
 			<u_min>-1.0</u_min>
 			<!-- minimum output clamp -->
@@ -291,15 +283,15 @@
 			<!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-	
-<!-- =============================================================== -->
- <!-- Pitch Axis Modes                                                -->
- <!-- =============================================================== -->
-
-<!-- Simple pitch hold -->
+	<!--
+    ================
+    Pitch Axis Modes
+    ================
+-->
+	<!-- Simple pitch hold -->
 	<pid-controller>
 		<name>Pitch hold</name>
-		<debug>true</debug>
+		<debug>false</debug>
 		<enable>
 			<prop>/autopilot/locks/altitude</prop>
 			<value>pitch-hold</value>
@@ -333,36 +325,6 @@
 			<!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-	
-	<filter>
-		 <name>SERVO-DRIVER:elevator-trim</name>
-		 <debug>false</debug>
-		 <feedback-if-disabled>true</feedback-if-disabled>
-		 <enable>
-		  <prop>/autopilot/locks/altitude</prop>
-		  <value>pitch-hold</value>
-		 </enable>
-		 <input>/autopilot/internal/elevator-cmd</input>
-		 <output>/controls/flight/elevator-trim</output>
-		 <type>noise-spike</type>
-		 <max-rate-of-change>0.0025</max-rate-of-change>
-	</filter>
-	
-	<filter>
-		 <name>SERVO-DRIVER:elevator</name>
-		 <debug>false</debug>
-		 <feedback-if-disabled>true</feedback-if-disabled>
-		 <enable>
-		  <prop>/autopilot/locks/altitude</prop>
-		  <value>pitch-hold</value>
-		 </enable>
-		 <input>/autopilot/internal/elevator-cmd</input>
-		 <output>/controls/flight/elevator</output>
-		 <type>noise-spike</type>
-		 <max-rate-of-change>0.0025</max-rate-of-change>
-	</filter>
-	
-	
 	<!-- Simple pitch hold with yoke -->
 	<pid-controller>
 		<name>Pitch hold w/ yoke</name>
@@ -400,8 +362,6 @@
 			<!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-	
-	
 	<!-- Simple angle of attack hold -->
 	<pid-controller>
 		<name>AOA hold</name>
@@ -440,38 +400,40 @@
 		</config>
 	</pid-controller>
 	<!--
-    Altitude hold.  2 stage cascade controller.
-    Stage #1 sets target rate of climb based on diff between current alt
-    and target altitude.
--->
-	
+    AGL hold.  2 stage cascade controller.
+    Stage #1 sets target rate of climb based on diff between current agl
+    and target agl.
+    -->
+  <!-- Altitude hold.  2 stage cascade controller. -->
 
   <!-- Stage #1 sets target rate of climb based on diff between current alt -->
   <!-- and target altitude. -->
-  <pi-simple-controller>
-    <name>Altitude Hold (Altimeter based) Stage 1</name>
-    <debug>false</debug>
-    <enable>
-      <prop>/autopilot/locks/altitude</prop>
-      <value>altitude-hold</value>
-    </enable>
-    <input>
-      <!--prop>/position/altitude-ft</prop-->
-      <prop>/instrumentation/altimeter/indicated-altitude-ft</prop>
-    </input>
-    <reference>
-      <prop>/autopilot/settings/target-altitude-ft</prop>
-    </reference>
-    <output>
-      <prop>/autopilot/internal/target-climb-rate-fps</prop>
-    </output>
-    <config>
-      <Kp>0.05</Kp>          <!-- proportional gain -->
-      <Ki>0.0</Ki>          <!-- integral gain -->
-      <u_min>-16.67</u_min> <!-- minimum output clamp -->
-      <u_max>33.33</u_max>   <!-- maximum output clamp -->
-    </config>
-  </pi-simple-controller>
+	<pi-simple-controller>
+		<name>Altitude Hold (Altimeter based) Stage 1</name>
+		<debug>false</debug>
+		<enable>
+			<prop>/autopilot/locks/altitude</prop>
+			<value>altitude-hold</value>
+		</enable>
+		<input>
+			<prop>/position/altitude-ft</prop>
+		</input>
+		<reference>
+			<prop>/autopilot/settings/target-altitude-ft</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-climb-rate-fps</prop>
+		</output>
+		<config>
+			<Kp>0.3</Kp>
+			<!-- proportional gain -->
+			<Ki>0.0</Ki>
+			<u_min>-33.3</u_min>
+			<!-- minimum output clamp -->
+			<u_max>33.3</u_max>
+			<!-- maximum output clamp -->
+		</config>
+	</pi-simple-controller>
 
   <!-- Stage #2 drives the elevator-trim to achieve the desired climb rate. -->
   <pid-controller>
@@ -488,72 +450,10 @@
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
     </reference>
     <output>
-      <prop>/controls/flight/elevator</prop>
+      <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
-      <Kp>-0.01</Kp>      <!-- proportional gain -->
-      <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-1.0</u_min> <!-- minimum output clamp -->
-      <u_max>1.0</u_max>  <!-- maximum output clamp -->
-    </config>
-  </pid-controller>
-	<!--
-    AGL hold.  2 stage cascade controller.
-    Stage #1 sets target rate of climb based on diff between current agl
-    and target agl.
--->
-	<pid-controller>
-		<name>AGL Hold (Altimeter based) Stage 1</name>
-		<debug>false</debug>
-		<enable>
-			<prop>/autopilot/locks/altitude</prop>
-			<value>agl-hold</value>
-		</enable>
-		<input>
-			<prop>/position/altitude-agl-ft</prop>
-		</input>
-		<reference>
-			<prop>/autopilot/settings/target-agl-ft</prop>
-		</reference>
-		<output>
-			<prop>/autopilot/internal/target-climb-rate-fps</prop>
-		</output>
-		<config>
-			<Kp>0.3</Kp>
-			<!-- proportional gain -->
-			<Ki>0.0</Ki>
-			<beta>1.0</beta>
-			<!-- input value weighing factor -->
-			<u_min>-33.33</u_min>
-			<!-- minimum output clamp -->
-			<u_max>33.33</u_max>
-			<!-- maximum output clamp -->
-		</config>
-	</pid-controller>
-	<!-- Stage #2 drives the elevator-trim to achieve the desired climb rate. -->
-	<pid-controller>
-		<name>Altitude Hold (Altimeter based) Stage 2</name>
-		<debug>false</debug>
-		<enable>
-			<prop>/autopilot/locks/altitude</prop>
-			<value>afl-hold</value>
-		</enable>
-		<input>
-			<prop>/velocities/vertical-speed-fps</prop>
-		</input>
-		<reference>
-			<prop>/autopilot/internal/target-climb-rate-fps</prop>
-		</reference>
-		<output>
-			<prop>/controls/flight/elevator-trim</prop>
-		</output>
-		<config>
-			<Kp>-0.001</Kp>
+			<Kp>-0.002</Kp>
 			<!-- proportional gain -->
 			<beta>1.0</beta>
 			<!-- input value weighing factor -->
@@ -570,73 +470,48 @@
 			<!-- minimum output clamp -->
 			<u_max>1.0</u_max>
 			<!-- maximum output clamp -->
+    </config>
+  </pid-controller>
+
+	<!-- Glideslope hold. -->
+	
+		
+	<pid-controller>
+		<name>Glideslope Hold</name>
+		<debug>false</debug>
+		<enable>
+			<prop>/autopilot/locks/altitude</prop>
+			<value>gs1-hold</value>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/instrumentation/nav[0]gs-rate-of-climb</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator-trim</prop>
+		</output>
+		<config>
+			<Kp>-0.004</Kp>
+			<!-- proportional gain -->
+			<beta>1.0</beta>
+			<!-- input value weighing factor -->
+			<alpha>0.1</alpha>
+			<!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>
+			<!-- input value weighing factor for -->
+			<!-- unfiltered derivative error -->
+			<Ti>10</Ti>
+			<!-- integrator time -->
+			<Td>0.00001</Td>
+			<!-- derivator time -->
+			<u_min>-.68</u_min>
+			<!-- minimum output clamp -->
+			<u_max>.68</u_max>
+			<!-- maximum output clamp -->
 		</config>
 	</pid-controller>
-
-  <!-- Glideslope hold. -->
-
-  <!-- Stage #2 drives the elevator-trim to achieve the desired climb rate. -->
-  <pid-controller>
-    <name>Glideslop Hold</name>
-    <debug>false</debug>
-    <enable>
-      <prop>/autopilot/locks/altitude</prop>
-      <value>gs1-hold</value>
-    </enable>
-    <input>
-      <prop>/velocities/vertical-speed-fps</prop>
-    </input>
-    <reference>
-      <prop>/instrumentation/nav[0]/gs-rate-of-climb</prop>
-    </reference>
-     <output>
-      <prop>/controls/flight/elevator</prop>
-    </output>
-    <config>
-      <Kp>-0.01</Kp>      <!-- proportional gain -->
-      <beta>1.0</beta>    <!-- input value weighing factor -->
-      <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
-      <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-                          <!-- unfiltered derivative error -->
-      <Ti>10.0</Ti>       <!-- integrator time -->
-      <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>-1.0</u_min> <!-- minimum output clamp -->
-      <u_max>1.0</u_max>  <!-- maximum output clamp -->
-    </config>
-  </pid-controller>
-
-
-  <!-- vertical speed hold -->
-   
-  <pid-controller>
-    <name>Vertical Speed Hold</name>
-    <debug>false</debug>
-    <enable>
-      <prop>/autopilot/locks/altitude</prop>
-      <value>vertical-speed-hold</value>
-    </enable>
-    <input>
-      <prop>/velocities/vertical-speed-fps</prop>
-    </input>
-    <reference>
-      <prop>/autopilot/settings/vertical-speed-fpm</prop>
-      <scale>0.01667</scale>
-    </reference>
-    <output>
-      <prop>/controls/flight/elevator-trim</prop>
-    </output>
-    <config>
-      <Kp>-0.007</Kp>      
-      <beta>1.0</beta>    
-      <alpha>0.1</alpha>  
-      <gamma>0.0</gamma>  
-                          
-      <Ti>40.0</Ti>       
-      <Td>0.000001</Td>    
-      <u_min>-2.0</u_min> 
-      <u_max>2.0</u_max>  
-    </config>
-  </pid-controller>
 	<!--
     ==============
     Velocity Modes

@@ -65,7 +65,7 @@
 	<offsets>
 		<x-m>-1.87381</x-m>
 		<y-m>0</y-m>
-		<z-m>0</z-m>
+		<z-m>-1.802358</z-m>
 	</offsets>
 </model>
 
@@ -84,7 +84,7 @@
 	<offsets>
 		<x-m>1.76666</x-m>
 		<y-m>0</y-m>
-		<z-m>3.13904</z-m>
+		<z-m>0.86277</z-m>
 	</offsets>
 </model>
 
@@ -92,8 +92,8 @@
 	<path>Aircraft/YF-17/Models/Effects/Lights/beacon.xml</path>
 	<offsets>
 		<x-m>6.12998</x-m>
-		<y-m>0</y-m>
-		<z-m>0.919678</z-m>
+		<y-m>-1.77942</y-m>
+		<z-m>2.31725</z-m>
 	</offsets>
 </model>
 
@@ -102,7 +102,7 @@
 	<offsets>
 		<x-m>6.07152</x-m>
 		<y-m>1.77942</y-m>
-		<z-m>4.30352</z-m>
+		<z-m>2.31725</z-m>
 	</offsets>
 </model>
 
@@ -110,9 +110,9 @@
 <model>
 	<path>Aircraft/YF-17/Models/Effects/Lights/RedLight.xml</path>
 	<offsets>
-		<x-m>6.07152</x-m>
-		<y-m>-1.77942</y-m>
-		<z-m>4.30352</z-m>
+		<x-m>4.09737</x-m>
+		<y-m>-5.29532</y-m>
+		<z-m>0.14968</z-m>
 	</offsets>
 </model>
 
@@ -121,8 +121,8 @@
 	<path>Aircraft/YF-17/Models/Effects/Lights/GreenLight.xml</path>
 	<offsets>
 		<x-m>4.09737</x-m>
-		<y-m>-5.29532</y-m>
-		<z-m>2.13595</z-m>
+		<y-m> 5.29532</y-m>
+		<z-m>0.14968</z-m>
 	</offsets>
 </model>
 
@@ -130,18 +130,18 @@
 <model>
 	<path>Aircraft/YF-17/Models/Effects/Lights/White-light/Landinglight.xml</path>
 	<offsets>
-		<x-m>1.77942</x-m>
+		<x-m>-1.77942</x-m>
 		<y-m>-0.228699</y-m>
-		<z-m>1.2218</z-m>
+		<z-m>-0.76447</z-m>
 	</offsets>
 </model>
 
 <model>
 	<path>Aircraft/YF-17/Models/Effects/Lights/White-light/Landinglight.xml</path>
 	<offsets>
-		<x-m>1.77942</x-m>
+		<x-m>-1.77942</x-m>
 		<y-m>0.228699</y-m>
-		<z-m>1.2218</z-m>
+		<z-m>-0.76447</z-m>
 	</offsets>
 </model>
 
